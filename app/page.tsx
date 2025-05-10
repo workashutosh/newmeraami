@@ -323,7 +323,7 @@ export default function Home() {
                   },
                   {
                     need: "Momentum and fast results",
-                    typical: '"Results take time" excuses',
+                    typical: "\"Results take time\" excuses",
                     meraami: "We build momentum within weeks, not months"
                   },
                   {
