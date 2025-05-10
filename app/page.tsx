@@ -17,6 +17,7 @@ import { IconStarFilled } from "@tabler/icons-react";
 import { ShootingStarsAndStarsBackgroundDemo } from "@/components/demos/shooting-stars-demo";
 import LetsMakeThingsHappenSection from "@/components/ui/lets-make-things-happen";
 import CaseStudiesSection from '@/components/ui/case-studies-section';
+import React, { useState, useEffect } from 'react';
 
 
 const services = [
@@ -57,6 +58,55 @@ const services = [
     hoverColor: "hover:bg-gray-100"
   }
 ];
+
+// Custom component for animated text
+const AnimatedTimeText = () => {
+  const variations = ['Time', 'Day', 'Month', 'Year'];
+  const [currentVariation, setCurrentVariation] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [translateY, setTranslateY] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Start animation sequence
+      setIsVisible(false);
+      setTranslateY(20); // Move down
+      
+      setTimeout(() => {
+        setCurrentVariation((prev) => (prev + 1) % variations.length);
+        setTranslateY(-20); // Prepare to move up
+        
+        // Fade in and move to original position
+        setTimeout(() => {
+          setIsVisible(true);
+          setTranslateY(0);
+        }, 300);
+      }, 300);
+    }, 3000); // Change every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <span className="text-blue-500">
+      Delivered On Time. Every{' '}
+      <span 
+        className={`
+          inline-block
+          transition-all 
+          duration-300 
+          ease-in-out
+          ${isVisible ? 'opacity-100' : 'opacity-0'}
+        `}
+        style={{
+          transform: `translateY(${translateY}px)`,
+        }}
+      >
+        {variations[currentVariation]}
+      </span>
+    </span>
+  );
+};
 
 export default function Home() {
   return (
@@ -261,7 +311,7 @@ export default function Home() {
               <h1 className="text-3xl md:text-5xl font-medium text-center md:text-left">
                 Handcrafted Marketing, 
                 <br />
-                <span className="text-blue-500">Delivered On Time. Every Time.</span>
+                <AnimatedTimeText />
               </h1>
               
               <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
