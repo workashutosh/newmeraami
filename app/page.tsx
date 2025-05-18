@@ -15,10 +15,9 @@ import { PiCheckBold } from "react-icons/pi";
 import { Link as ScrollLink, Element } from "react-scroll";
 import { IconStarFilled } from "@tabler/icons-react";
 import { ShootingStarsAndStarsBackgroundDemo } from "@/components/demos/shooting-stars-demo";
-import LetsMakeThingsHappenSection from "@/components/ui/lets-make-things-happen";
 import CaseStudiesSection from '@/components/ui/case-studies-section';
 import React, { useState, useEffect } from 'react';
-
+import NavigationBar from '@/components/ui/navigation-bar';
 
 const services = [
   {
@@ -119,68 +118,8 @@ export default function Home() {
     >
       <Element
         name="top"
-        className="overflow-hidden rounded-[50px] top-5 sticky md:mx-auto z-50 
-   xl:w-4/5 2xl:w-[68%] bg-gray-100 shadow-md flex items-center shadow-blue-100
-   justify-between py-3 px-3 md:px-8 mx-6"
       >
-        <Link href={"/"}> 
-          <Image
-            src={"/logo/logo.webp"}
-            alt="Logo"
-            width={1000}
-            height={1000}
-            className="w-[150px] h-12"
-          />
-        </Link>
-
-        <div className="absolute right-1/2 translate-x-1/2 transform">
-          <div className="hidden md:flex gap-x-10 items-center text-gray-700 font-medium text-lg cursor-pointer">
-            <Link href={"/"} className="hover:text-blue-500">
-              Home
-            </Link>
-
-            <ScrollLink
-              to="about"
-              smooth={true}
-              className="hover:text-blue-500"
-            >
-              About Us
-            </ScrollLink>
-
-            <ScrollLink
-              to="services"
-              smooth={true}
-              className="hover:text-blue-500"
-            >
-              Services
-            </ScrollLink>
-
-            <Link href={"/showcase"} className="hover:text-blue-500">
-              Our Work
-            </Link>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-x-4 ">
-          <Link
-            href={"/contact"}
-            className="
-  py-3 
-  px-6
-  text-lg 
-  hover:bg-[#abcbff]
-  hover:font-bold
-  border-2
-  border-black
-  text-white rounded-[50px]
-  bg-[#121212]
-  transition
-  duration-200
-     hover:shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)] "
-          >
-            Contact Us
-          </Link>
-        </div>
+        <NavigationBar />
       </Element>
 
       <main className="md:pb-10">
@@ -302,6 +241,7 @@ export default function Home() {
           </div>
         </div>
       </main>
+      {/* <TargetShootAnimation /> */}
 
             {/* New About Us Section */}
             <Element name="about">
@@ -520,6 +460,8 @@ export default function Home() {
         </main>
       </Element>
 
+      
+
       <section>
         <main className="md:flex items-center justify-center space-y-6 md:space-y-0 md:gap-x-20 xl:w-4/5 2xl:w-[68%] mx-auto px-6 md:px-0">
           <Image
@@ -694,276 +636,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full bg-gradient-to-br from-[#f8fafc] via-blue-50/10 to-blue-100/20 py-20 md:py-28 relative overflow-hidden">
-        {/* Elegant background pattern */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="elegantPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                <path d="M0 0L50 50L100 0" fill="none" stroke="rgba(59, 130, 246, 0.05)" strokeWidth="1"/>
-                <path d="M0 100L50 50L100 100" fill="none" stroke="rgba(59, 130, 246, 0.05)" strokeWidth="1"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#elegantPattern)"/>
-          </svg>
-        </div>
-
-        {/* Subtle decorative elements */}
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-blue-100/30 rounded-full blur-3xl -z-10"></div>
-        <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-purple-100/30 rounded-full blur-3xl -z-10"></div>
-
-        <div className="container mx-auto px-6 max-w-7xl relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-extralight tracking-tight mb-6 
-              bg-clip-text text-transparent 
-              bg-gradient-to-br from-gray-800 via-blue-900 to-blue-700
-              dark:from-gray-100 dark:via-blue-200 dark:to-blue-300">
-              Voices of Success
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto opacity-80">
-              Beyond metrics and strategies, these are stories of transformation, partnership, and breakthrough.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-10">
-            {[
-              {
-                name: "Ritika Malhotra",
-                title: "Co-founder, Elevate Living",
-                quote: "We've worked with 4 different agencies before, but Meraami finally cracked what we were trying to say and how to say it. Our cost per lead dropped by 60%, and the leads are converting. The team was proactive, fast, and completely aligned with our sales goals. Couldn't ask for more.",
-                industry: "Real Estate",
-                icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                ),
-                accentColor: "border-blue-500"
-              },
-              {
-                name: "Dr. Karan Mehta",
-                title: "Founder, ClearPath Physio",
-                quote: "As a clinic, we were skeptical about digital marketing. But Meraami made the process easy, transparent, and actually exciting. The website copy and ad creatives truly reflected our brand. We started seeing patient bookings through Instagram within the first month.",
-                industry: "Healthcare",
-                icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                ),
-                accentColor: "border-purple-500"
-              },
-              {
-                name: "Ananya Singh",
-                title: "Marketing Lead, Solista Jewelry",
-                quote: "We didn't just get content, we got strategy, empathy, and accountability. Meraami understood our audience better than we did and brought fresh ideas every week. Our brand finally feels premium online, and the engagement proves it.",
-                industry: "D2C Luxury",
-                icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-                  </svg>
-                ),
-                accentColor: "border-pink-500"
-              }
-            ].map((testimonial, index) => (
-              <div 
-                key={index}
-                className="
-                  group
-                  bg-white 
-                  rounded-3xl 
-                  p-8 
-                  border 
-                  border-gray-100 
-                  shadow-2xl 
-                  shadow-blue-100/50
-                  transition-all 
-                  duration-700 
-                  hover:shadow-3xl
-                  hover:scale-[1.02]
-                  relative
-                  overflow-hidden
-                "
-              >
-                {/* Elegant quote icon */}
-                <div className={`
-                  absolute 
-                  -top-4 
-                  -left-4 
-                  w-16 
-                  h-16 
-                  bg-gradient-to-br 
-                  from-blue-50 
-                  to-blue-100 
-                  rounded-full 
-                  flex 
-                  items-center 
-                  justify-center
-                  opacity-50
-                  group-hover:opacity-100
-                  transition-opacity
-                  duration-500
-                `}>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983z"/>
-                  </svg>
-                </div>
-
-                <div className="flex items-center mb-6">
-                  {/* Icon with elegant border */}
-                  <div className={`
-                    w-16 
-                    h-16 
-                    rounded-full 
-                    mr-6 
-                    border-4 
-                    ${testimonial.accentColor}
-                    shadow-md
-                    transition-transform
-                    group-hover:rotate-6
-                    flex
-                    items-center
-                    justify-center
-                  `}>
-                    {testimonial.icon}
-                  </div>
-                  
-                  <div>
-                    <p className="font-semibold text-lg text-blue-600 mb-1">
-                      {testimonial.name}
-                    </p>
-                    <p className="text-gray-500 text-sm">
-                      {testimonial.title}
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-lg text-gray-700 italic leading-relaxed mb-4 relative">
-                  <span className="absolute -left-3 top-0 text-blue-100 text-4xl opacity-50">"</span>
-                  {testimonial.quote}
-                  <span className="absolute -right-3 bottom-0 text-blue-100 text-4xl opacity-50">"</span>
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-20">
-            <div className="
-              bg-gradient-to-br 
-              from-blue-50 
-              via-blue-100 
-              to-blue-200 
-              rounded-[40px] 
-              p-12 
-              max-w-4xl 
-              mx-auto 
-              shadow-2xl 
-              shadow-blue-200/50 
-              relative 
-              overflow-hidden
-              border 
-              border-white/50
-            ">
-              {/* Elegant decorative elements */}
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-blue-200/30 rounded-full blur-3xl"></div>
-              <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-purple-200/30 rounded-full blur-3xl"></div>
-
-              <h3 className="
-                text-4xl 
-                md:text-5xl 
-                font-light 
-                tracking-tight 
-                text-gray-800 
-                mb-6 
-                relative 
-                z-10
-                bg-clip-text 
-                text-transparent 
-                bg-gradient-to-br 
-                from-gray-800 
-                via-blue-900 
-                to-blue-700
-              ">
-                Let&apos;s Create Something Remarkable
-              </h3>
-              <p className="
-                text-xl 
-                text-gray-600 
-                mb-8 
-                relative 
-                z-10 
-                opacity-80
-                max-w-2xl 
-                mx-auto
-              ">
-                We don&apos;t just work for you. We work with you to craft digital experiences that truly matter.
-              </p>
-              <Link
-                href="/contact"
-                className="
-                  inline-block 
-                  px-12 
-                  py-4 
-                  text-lg 
-                  bg-blue-600 
-                  text-white 
-                  rounded-full 
-                  hover:bg-blue-700 
-                  transition 
-                  duration-500 
-                  shadow-xl 
-                  hover:shadow-blue-500/50
-                  transform 
-                  hover:-translate-y-2
-                  relative 
-                  z-10
-                  group
-                  font-medium
-                  tracking-wide
-                "
-              >
-                <span className="relative flex items-center">
-                  Discover Our Approach
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    className="h-5 w-5 ml-2 transition-transform group-hover:translate-x-1" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Add Case Studies Section */}
       <CaseStudiesSection />
 
-      <footer className="bg-[#fafafa] py-10  px-6 md:px-0 md:mx-auto border-t">
-        <div className="flex flex-col  justify-between gap-y-3 xl:w-4/5 2xl:w-[68%] mx-auto">
-          <h1 className="text-3xl md:text-5xl font-medium ">
-            <Image
-              src={"/logo/logo.webp"}
-              width={10000}
-              height={10000}
-              className="w-40"
-              alt="image"
-            />{" "}
-          </h1>
-          <p className="text-left  text-xl  text-gray-500">
-          swizel.meraami@gmail.com
-          </p>
-        </div>
-
-        <div className="flex md:justify-center gap-x-4 mt-10">
-          © 2025 Meraami. All Rights Reserved.
-          <Link href="/" className="text-blue-500">
-            Privacy Policy
-          </Link>
-        </div>
-      </footer>
     </div>
   );
 }
