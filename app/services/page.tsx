@@ -258,7 +258,8 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
         group
         bg-white 
         rounded-3xl 
-        p-12 
+        p-6 
+        md:p-12 
         shadow-xl 
         hover:shadow-2xl 
         transition-all 
@@ -273,18 +274,18 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-50 via-purple-50 to-transparent rounded-bl-full opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
       <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/0 to-purple-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       <div className="relative">
-        <div className="flex items-center gap-8 mb-10">
+        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 mb-6 md:mb-10">
           <motion.div
             variants={iconVariants}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl transform group-hover:scale-110 transition-transform duration-500"
+            className="p-4 md:p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl transform group-hover:scale-110 transition-transform duration-500"
           >
-            <span className="text-6xl">{service.icon}</span>
+            <span className="text-4xl md:text-6xl">{service.icon}</span>
           </motion.div>
           <motion.h2
             variants={featureVariants}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-3xl md:text-4xl font-bold text-gray-800 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent"
+            className="text-2xl md:text-4xl font-bold text-gray-800 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent"
           >
             {service.title}
           </motion.h2>
@@ -292,12 +293,12 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
         <motion.p
           variants={featureVariants}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-xl text-gray-600 mb-16 max-w-3xl leading-relaxed"
+          className="text-lg md:text-xl text-gray-600 mb-8 md:mb-16 max-w-3xl leading-relaxed"
         >
           {service.description}
         </motion.p>
         
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
           {service.features.map((feature: Feature, featureIndex: number) => (
             <motion.div
               key={featureIndex}
@@ -310,7 +311,8 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
                 via-white 
                 to-gray-50
                 rounded-2xl 
-                p-8 
+                p-4
+                md:p-8 
                 hover:shadow-lg 
                 transition-all 
                 duration-300
@@ -413,7 +415,7 @@ export default function ServicesPage() {
             className="absolute -bottom-20 left-40 w-72 h-72 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"
           />
         </motion.div>
-        <div className="container mx-auto px-6 py-32 relative">
+        <div className="container mx-auto px-4 md:px-6 py-16 md:py-32 relative">
           <motion.div 
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
@@ -430,7 +432,7 @@ export default function ServicesPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
-                className="relative text-5xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 leading-tight"
+                className="relative text-3xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 leading-tight"
               >
                 Our Services
               </motion.h2>
@@ -509,11 +511,11 @@ export default function ServicesPage() {
       </div>
 
       {/* Main Services */}
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto px-4 md:px-6 py-12 md:py-20">
         <motion.div 
           initial="hidden"
           animate="visible"
-          className="space-y-32"
+          className="space-y-16 md:space-y-32"
         >
           {mainServices.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
@@ -521,20 +523,20 @@ export default function ServicesPage() {
         </motion.div>
 
         {/* Service Bundles */}
-        <div className="mt-48">
-          <div className="text-center max-w-3xl mx-auto mb-24">
+        <div className="mt-24 md:mt-48">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-24">
             <div className="inline-block relative mb-6">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-2xl"></div>
-              <h2 className="relative text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
+              <h2 className="relative text-3xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
                 Service Bundles
               </h2>
             </div>
-            <p className="text-xl text-slate-600">
+            <p className="text-lg md:text-xl text-slate-600 px-4">
               Expertly curated service packages designed to deliver maximum impact for your specific business needs.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
             {serviceBundles.map((bundle, index) => (
               <div 
                 key={index} 
@@ -542,7 +544,8 @@ export default function ServicesPage() {
                   group
                   bg-white 
                   rounded-3xl 
-                  p-12
+                  p-6
+                  md:p-12
                   shadow-xl 
                   hover:shadow-2xl 
                   transition-all 
@@ -577,15 +580,15 @@ export default function ServicesPage() {
         </div>
 
         {/* Final CTA */}
-        <div className="mt-48">
-          <div className="bg-gradient-to-br from-blue-600 via-blue-500 to-purple-500 rounded-3xl p-20 max-w-5xl mx-auto text-center text-white relative overflow-hidden">
+        <div className="mt-24 md:mt-48">
+          <div className="bg-gradient-to-br from-blue-600 via-blue-500 to-purple-500 rounded-3xl p-8 md:p-20 max-w-5xl mx-auto text-center text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-[url('/patterns/circuit.svg')] opacity-10"></div>
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-transparent"></div>
             <div className="relative">
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-                Ready to Elevate Your<br />Digital Presence?
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 md:mb-8 leading-tight">
+                Ready to Elevate Your<br className="hidden md:block" />Digital Presence?
               </h2>
-              <p className="text-xl text-blue-50 mb-12 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl text-blue-50 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
                 Let's collaborate to create something extraordinary that sets your brand apart in the digital landscape.
               </p>
               <Link
